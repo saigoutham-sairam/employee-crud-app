@@ -1,27 +1,34 @@
 spring:
   application:
-  name: employee-crud-app
+    name: employee-crud-app
 
-datasource:
-  url: jdbc:h2:mem:employeedb
-  driver-class-name: org.h2.Driver
-  username: sa
-  password:
+  datasource:
+    url: jdbc:h2:mem:employeedb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
 
-h2:
-  console:
-  enabled: true
-  path: /h2-console
-jpa:
-  database-platform: org.hibernate.dialect.H2Dialect
-hibernate:
-  ddl-auto: update
-  show-sql: true
-  properties:
-  hibernate:
-  format_sql: true
-  server:
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+server:
   port: 8080
+  # Comment out context-path for OAuth2 to work correctly
+  # servlet:
+  #   context-path: /api
 
-servlet:
-  context-path: /api
+logging:
+  level:
+    org.springframework.security: DEBUG
+    org.springframework.security.oauth2: DEBUG
