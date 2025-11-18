@@ -1,10 +1,7 @@
 package com.example.employee.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.Generated;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
@@ -13,6 +10,7 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class MfaSession {
 
     @Id
@@ -35,7 +33,7 @@ public class MfaSession {
     private LocalDateTime expiresAt;
 
     @Column(nullable = false)
-    private String verified;
+    private boolean verified;
 
     @Column(name = "attempt_count")
     private int attemptCount = 0;
